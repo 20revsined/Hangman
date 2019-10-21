@@ -51,6 +51,7 @@ class Guess():
 	while x < len(word):
 		CodedWord += "*"
 		x += 1
+	print(CodedWord)
 
 	print("Welcome to Hangman! You will guess letters and try guess the correct word. Good luck!")
 
