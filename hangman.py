@@ -49,14 +49,23 @@ class Guess():
 	z = 0
 
 	CodedWord = ""
+	NewWord = ""
 
 	while x < len(word):
 		CodedWord += "*"
 		x += 1
-	#print(CodedWord)
+	print(CodedWord)
 
 	listCodedWord = list(CodedWord)
-	print(listCodedWord)
+
+	def toString(string):
+		z = ""
+		NewString = ""
+		for z in list(string):
+			NewString += z
+		return NewString
+
+	#print(listCodedWord)
 
 	print("Welcome to Hangman! You will guess letters and try guess the correct word. Good luck!")
 
@@ -77,15 +86,16 @@ class Guess():
 				if letter == listWord[z]:
 					listCodedWord[z] = letter
 				z += 1
-
-			print(listCodedWord)
+			print(toString(listCodedWord))
 			guess += 1
 			z = 0
 
 		else:
-			print(listCodedWord)
+			print(toString(listCodedWord))
 			guess += 1
 
 		if listCodedWord == listWord and guess <= 19:
 			print("Congratulations! You guessed the word!")
 			sys.exit(0)
+			
+#source: https://www.geeksforgeeks.org/python-convert-list-characters-string/
