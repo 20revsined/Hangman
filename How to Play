@@ -1,5 +1,5 @@
 In this game of Hangman, the user tries to guess a randomly generated word.
-The user only has 10 tries to guess the word.
-The user only has to enter the correct letters in any order.
+The user has 20 tries to guess the word.
+As the user correctly guesses letters, they will appear in their corresponding spot(s) in the word.
 
 Good luck and have fun!
