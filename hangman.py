@@ -37,6 +37,7 @@ class GenerateWord():
 		WordList.append("squid")
 		WordList.append("whale")
 		WordList.append("shrimp")
+		WordList.append("abcdefghijklmnopqrstuvwxyz")
 
 		return WordList[random.randint(0, len(WordList) - 1)]
 
@@ -70,6 +71,7 @@ class Guess():
 	print("Welcome to Hangman! You will guess letters and try guess the correct word. Good luck!")
 
 	guess = 0
+	GuessLimit = len(word) + 3
 	number = 0
 
 	while True:
@@ -77,7 +79,7 @@ class Guess():
 		number = listWord.count(letter)
 		#NewWord += letter
 
-		if guess == 19 and "*" in listCodedWord:
+		if guess == GuessLimit and "*" in listCodedWord:
 			print("Sorry, you were unable to guess the word. The word was " + word + ".")
 			sys.exit(0)
 
@@ -94,8 +96,8 @@ class Guess():
 			print(toString(listCodedWord))
 			guess += 1
 
-		if listCodedWord == listWord and guess <= 19:
+		if listCodedWord == listWord and guess <= GuessLimit:
 			print("Congratulations! You guessed the word!")
 			sys.exit(0)
-			
+
 #source: https://www.geeksforgeeks.org/python-convert-list-characters-string/
