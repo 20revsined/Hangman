@@ -43,40 +43,49 @@ class GenerateWord():
 class Guess():
 	global GenerateWord
 	word = GenerateWord.getWord()
+	listWord = list(word)
 
 	x = 0
+	z = 0
 
 	CodedWord = ""
 
 	while x < len(word):
 		CodedWord += "*"
 		x += 1
-	print(CodedWord)
+	#print(CodedWord)
+
+	listCodedWord = list(CodedWord)
+	print(listCodedWord)
 
 	print("Welcome to Hangman! You will guess letters and try guess the correct word. Good luck!")
 
-	NewWord = ""
-
-	y = 0
 	guess = 0
+	number = 0
 
-	while y < len(word):
+	while True:
 		letter = str(input("Please enter a letter."))
-		NewWord += letter
+		number = listWord.count(letter)
+		#NewWord += letter
 
-		if guess == 10:
+		if guess == 19 and "*" in listCodedWord:
 			print("Sorry, you were unable to guess the word. The word was " + word + ".")
 			sys.exit(0)
 
-		print(NewWord)
-		if NewWord.find(letter) != -1 and word.find(letter) != -1:
-			y += 1
+		if number > 0:
+			while z < len(listCodedWord):
+				if letter == listWord[z]:
+					listCodedWord[z] = letter
+				z += 1
+
+			print(listCodedWord)
 			guess += 1
+			z = 0
 
 		else:
+			print(listCodedWord)
 			guess += 1
-			continue
 
-		if(y == len(word)):
+		if listCodedWord == listWord and guess <= 19:
 			print("Congratulations! You guessed the word!")
 			sys.exit(0)
